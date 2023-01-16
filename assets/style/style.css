@@ -1,0 +1,407 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+/***************carre***************/
+
+body {
+    display: grid;
+    grid-template-areas:
+        "nav carré balle load"
+        "nav queue troisD zob"
+    ;
+}
+
+#carre {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+.troisD {
+    grid-area: troisD;
+    margin-top: 50px;
+}
+
+.carre {
+    grid-area: carré;
+}
+
+.balle {
+    grid-area: balle;
+}
+
+.load {
+    grid-area: load;
+}
+
+.queue {
+    grid-area: queue;
+    margin-top: 50px;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: black;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.carre_rotation {
+    width: 200px;
+    height: 200px;
+    border: solid 1px black;
+    margin: 100px 140px;
+    animation-name: carre;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+}
+
+@keyframes carre {
+    from {
+        background-color: yellow;
+        transform: rotate(0deg);
+    }
+
+    to {
+        background-color: pink;
+        transform: rotate(290deg)
+    }
+}
+
+/***************Balle***************/
+
+.container {
+    width: 50px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 100px 220px;
+    position: relative;
+}
+
+#balle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid black;
+    position: absolute;
+    background-color: black;
+
+    animation-name: ball;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ball {
+    0% {
+        top: 0px;
+    }
+
+    19% {
+        transform: scaleY(1);
+    }
+
+    20% {
+        top: 250px;
+        transform: scaleY(0.5)
+    }
+
+    21% {
+        transform: scaleY(1);
+    }
+
+    40% {
+        top: 50px;
+    }
+
+    60% {
+        top: 250px;
+    }
+
+    80% {
+        top: 150px;
+    }
+
+    100% {
+        top: 250px;
+    }
+}
+
+/***************loading***************/
+
+.load {
+    display: flex;
+    justify-content: center;
+    margin: 150px 50px;
+}
+
+.loading {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 100%;
+    margin: 20px auto;
+
+    animation-name: loading;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.loading:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.loading:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes loading {
+
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: rgb(11, 9, 9);
+    }
+}
+
+/***************a la queue ***************/
+
+.file {
+    position: relative;
+}
+
+.queues {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 7px;
+    position: absolute;
+    border-radius: 30%;
+
+    animation-name: queue;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes queue {
+    0% {
+        top: 0px;
+        background-color: rgb(0, 251, 255);
+        transform: rotate(0deg);
+    }
+
+    20% {
+        top: 385px;
+        background-color: rgb(186, 226, 43);
+    }
+
+
+    21% {
+        left: 0px;
+    }
+
+    50% {
+        left: 450px;
+        background-color: blueviolet;
+    }
+
+    51% {
+        top: 380px;
+    }
+
+    70% {
+        top: 0px;
+    }
+
+    71% {
+        left: 450px;
+        transform: rotate(1440deg);
+    }
+
+    100% {
+        left: 0px;
+        transform: rotate(0deg);
+    }
+}
+
+.queues:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.queues:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.queues:nth-child(4) {
+    animation-delay: 2s;
+}
+
+.queues:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+.queues:nth-child(6) {
+    animation-delay: 3s;
+}
+
+.queues:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+/************Menu déroulant ************/
+
+.nav {
+    width: 100px;
+    height: 50px;
+    transition-duration: 5s;
+}
+
+.nav:hover {
+    height: 800px
+}
+
+/************ Carousel 3d ***********/
+
+#carousel {
+    width: 50px;
+    height: 50px;
+    transform-style: preserve-3d;
+    animation: rotate 5s linear infinite;
+}
+
+#rotate {
+    width: 50px;
+    height: 50px;
+    transform-style: preserve-3d;
+    animation: rotates 10s linear infinite;
+    margin: 200px 200px;
+}
+
+@keyframes rotates {
+    0% {
+        transform: perspective(1000px) rotateX(0deg);
+    }
+
+    100% {
+        transform: perspective(1000px) rotateX(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+#carousel div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(150px);
+}
+
+#carousel div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.peppo {
+    position: absolute;
+
+    animation-name: peppo;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.relative {
+    position: relative;
+}
+
+@keyframes peppo {
+    0% {
+        top: -50px;
+        left: -50px;
+    }
+
+    10% {
+        top: 0px;
+        left: 0px;
+    }
+
+    20% {
+        top: 50px;
+        left: 50px;
+    }
+
+    30% {
+        top: 90px;
+        left: 90px;
+    }
+
+    40% {
+        top: 40px;
+        left: 0px;
+    }
+
+    50% {
+        top: -20px;
+        left: -60px;
+    }
+
+    60% {
+        top: 40px;
+        left: 60px;
+    }
+
+    70% {
+        top: 90px;
+        left: 0px;
+    }
+
+    80% {
+        top: 10px;
+        left: 60px;
+    }
+
+    90% {
+        top: 70px;
+        left: 0px;
+    }
+
+    100% {
+        top: -50px;
+        left: -50px;
+    }
+}
